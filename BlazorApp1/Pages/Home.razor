@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+<div>
+    <select @bind="SelectedState" @bind:after="DoSomethingAsync">
+        <option value="">Please select one</option>
+        <option value="AK">Alaska</option>
+        <option value="MT">Montana</option>
+        <option value="WY">Wyoming</option>
+    </select>
+</div>
+
+@code {
+
+    private string SelectedState = string.Empty;
+
+    public async Task DoSomethingAsync()
+    {
+        var userSelected = SelectedState;
+        await Task.Delay(3000);
+    }
+}
